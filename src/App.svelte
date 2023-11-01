@@ -5,10 +5,11 @@
 	
 	let videos = [];
 	let selectedVideo = null;
-  
+	
 	const searchYouTube = async (searchTerm) => {
-	  const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${encodeURIComponent(searchTerm)}&key=${API_KEY}`);
+	  const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${encodeURIComponent(searchTerm)}&key=${process.env.API_KEY}`);
 	  const data = await response.json();
+	  console.log(data);
 	  videos = data.items;
 	  selectedVideo = videos[0];
 	};
