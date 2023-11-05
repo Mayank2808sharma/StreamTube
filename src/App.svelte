@@ -35,34 +35,49 @@
   </script>
   
   <div class="app">
+	<div class="Nav">
+		<div class="logoName">StreamTube</div>
+	</div>
+	<div class="parent">
 	<div class="video-display">
 	  <VideoDetail {selectedVideo} {loadMore} />
 	</div>
 	<div class="video-list">
 	  <VideoList {videos} {selectVideo} />
 	</div>
+</div>
 	<div class="search-bar">
 	  <SearchBar on:click={(event) => searchYouTube(event.detail.searchTerm)} />
 	</div>
   </div>
   
   <style>
+	.parent{
+		display: flex;
+	}
 	.app {
-	  max-width: 800px;
-	  margin: 20px auto;
-	  display: flex;
-	  flex-direction: column;
-	  height: 100%;
+	height: 100%;
+	}
+	.Nav{
+		display: flex;
+		justify-content: space-between;
+		height: 100px;
+	}
+	.logoName{
+		font-size: xx-large;
+		margin-left: 25px;
+		font-weight: bolder;
+	}
+	.changeTheme{
+		font-size: xx-large;
+		margin-right: 25px;
 	}
 	.video-display, .video-list {
 	  flex: 1;
 	}
-	.video-display {
-	  border-bottom: 1px solid #ccc;
-	  padding: 16px;
-	}
 	.video-list {
-	  overflow-y: auto;
+	  overflow-y: scroll;
+	  max-height: 500px;
 	  padding: 8px;
 	  border-bottom: 1px solid #ccc;
 	}
